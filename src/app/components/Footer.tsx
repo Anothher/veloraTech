@@ -58,7 +58,7 @@ export default function Footer() {
               <span className="text-xl font-black">VeloraTech</span>
             </div>
             <p className="mb-4 leading-7 text-slate-400">{content.description}</p>
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               {[
                 ['https://facebook.com', 'Facebook', Facebook],
                 ['https://twitter.com', 'Twitter', Twitter],
@@ -76,7 +76,7 @@ export default function Footer() {
                   <Icon className="h-5 w-5" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div>
@@ -106,21 +106,21 @@ export default function Footer() {
           <div>
             <h4 className="mb-4 font-black">{content.contact}</h4>
             <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-slate-400">
+              {/* <li className="flex items-start gap-3 text-slate-400">
                 <Mail className="mt-0.5 h-5 w-5 shrink-0" />
                 <a href="mailto:hola@veloratech.com" className="transition-colors duration-200 hover:text-white">
                   hola@veloratech.com
                 </a>
-              </li>
+              </li> */}
               <li className="flex items-start gap-3 text-slate-400">
                 <Phone className="mt-0.5 h-5 w-5 shrink-0" />
-                <a href="tel:+5491112345678" className="transition-colors duration-200 hover:text-white">
-                  +54 9 11 1234-5678
+                <a href="tel:+573006284960" className="transition-colors duration-200 hover:text-white">
+                  +57 300 628 4960
                 </a>
               </li>
               <li className="flex items-start gap-3 text-slate-400">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0" />
-                <span>Buenos Aires, Argentina</span>
+                <span>Barranquilla, Colombia</span>
               </li>
             </ul>
           </div>

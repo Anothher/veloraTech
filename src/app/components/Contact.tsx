@@ -20,7 +20,7 @@ const copy = {
     placeholders: {
       name: 'Tu nombre',
       email: 'tu@email.com',
-      phone: '+57 300 628 4960',
+      phone: '+57 315 704 0015',
       projectType: 'Selecciona una opción',
       budget: 'Selecciona un rango',
       message: 'Describe tu proyecto, objetivos y cualquier detalle importante...',
@@ -58,7 +58,7 @@ const copy = {
     placeholders: {
       name: 'Your name',
       email: 'you@email.com',
-      phone: '+57 300 628 4960',
+      phone: '+57 315 704 0015',
       projectType: 'Select an option',
       budget: 'Select a range',
       message: 'Describe your project, goals and any important details...',

@@ -1,5 +1,5 @@
 export const whatsappContact = {
-  display: '+57 300 628 4960',
+  display: '+57 315 704 0015',
   tel: '+573157040015',
   waNumber: '573157040015',
 };

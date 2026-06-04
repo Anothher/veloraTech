@@ -1,6 +1,7 @@
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useLanguage } from '../lib/language';
+import { buildWhatsAppUrl } from '../models/contactChannels';
 
 const copy = {
   es: {
@@ -24,7 +25,7 @@ const copy = {
 export default function FinalCTA() {
   const { language } = useLanguage();
   const content = copy[language];
-  const whatsappUrl = `https://wa.me/5491112345678?text=${encodeURIComponent(content.whatsappText)}`;
+  const whatsappUrl = buildWhatsAppUrl(content.whatsappText);
 
   return (
     <section className="relative overflow-hidden bg-[#171735] px-4 py-20 sm:px-6 lg:px-8">

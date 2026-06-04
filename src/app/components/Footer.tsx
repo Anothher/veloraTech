@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react';
 import { useLanguage } from '../lib/language';
+import { whatsappContact } from '../models/contactChannels';
 
 const copy = {
   es: {
@@ -114,8 +115,8 @@ export default function Footer() {
               </li> */}
               <li className="flex items-start gap-3 text-slate-400">
                 <Phone className="mt-0.5 h-5 w-5 shrink-0" />
-                <a href="tel:+573006284960" className="transition-colors duration-200 hover:text-white">
-                  +57 300 628 4960
+                <a href={`tel:${whatsappContact.tel}`} className="transition-colors duration-200 hover:text-white">
+                  {whatsappContact.display}
                 </a>
               </li>
               <li className="flex items-start gap-3 text-slate-400">

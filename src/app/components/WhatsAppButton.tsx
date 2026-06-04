@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import whatsappIcon from '../../assets/icons/whatsapp.png';
 import { useLanguage } from '../lib/language';
+import { buildWhatsAppUrl } from '../models/contactChannels';
 
 const copy = {
   es: {
@@ -19,7 +20,7 @@ export default function WhatsAppButton() {
 
   return (
     <motion.a
-      href={`https://wa.me/573006284960?text=${encodeURIComponent(content.message)}`}
+      href={buildWhatsAppUrl(content.message)}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0 }}

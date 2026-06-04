@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ChevronDown, Globe2, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../lib/language';
+import QuoteModal from './QuoteModal';
 
 const copy = {
   es: {
@@ -36,10 +37,16 @@ const copy = {
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { language, toggleLanguage } = useLanguage();
   const content = copy[language];
   const nextLanguage = language === 'es' ? 'EN' : 'ES';
+
+  const openQuoteModal = () => {
+    setIsOpen(false);
+    setIsQuoteOpen(true);
+  };
 
   useEffect(() => {
     const updateHeader = () => setIsScrolled(window.scrollY > 24);
@@ -51,12 +58,13 @@ export default function Header() {
   }, []);
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, ease: 'easeOut' }}
-      className="fixed left-0 right-0 top-4 z-50 px-3 sm:px-5"
-    >
+    <>
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="fixed left-0 right-0 top-4 z-50 px-3 sm:px-5"
+      >
       <div className="mx-auto max-w-7xl">
         <div
           className={`flex min-h-16 items-center justify-between gap-4 rounded-[2rem] border px-4 py-2 backdrop-blur-xl transition-all duration-300 md:px-8 ${
@@ -111,8 +119,9 @@ export default function Header() {
             >
               {content.account}
             </a>
-            <a
-              href="#contacto"
+            <button
+              type="button"
+              onClick={openQuoteModal}
               className={`rounded-full px-6 py-3 text-sm font-bold text-white shadow-lg transition-transform duration-200 hover:-translate-y-0.5 ${
                 isScrolled
                   ? 'bg-[#171A3A] shadow-[#171A3A]/20'
@@ -120,7 +129,7 @@ export default function Header() {
               }`}
             >
               {content.cta}
-            </a>
+            </button>
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
@@ -171,17 +180,20 @@ export default function Header() {
                   {item.label}
                 </a>
               ))}
-              <a
-                href="#contacto"
-                onClick={() => setIsOpen(false)}
+              <button
+                type="button"
+                onClick={openQuoteModal}
                 className="mt-2 rounded-2xl bg-gradient-to-r from-[#2563EB] via-[#7C3AED] to-[#06B6D4] px-4 py-3 text-center font-bold text-white"
               >
                 {content.cta}
-              </a>
+              </button>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+      </motion.header>
+
+      <QuoteModal language={language} open={isQuoteOpen} onOpenChange={setIsQuoteOpen} />
+    </>
   );
 }
